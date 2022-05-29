@@ -12,7 +12,5 @@ console.log("title - это " + typeof title + ",", " fullPrice - это " + typ
 console.log(`Длинна строки ${screens.length}`);
 console.log(`Стоимость верстки экранов ${screenPrice} долларов`);
 console.log(`Стоимость разработки сайта ${fullPrice} долларов`);
-
-screens.toLowerCase();
-console.log(screens.split(", "));
-console.log(`Процент отката посреднику за работу ${(fullPrice * (rollback/100))}`)
+console.log(screens.toLowerCase().split(", "));
+screens.toLowerCase(screens );console.log(`Процент отката посреднику за работу ${(fullPrice * (rollback/100))}`)
