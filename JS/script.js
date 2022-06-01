@@ -17,25 +17,26 @@ console.log("А это - сообщение в консоли");
 console.log("title - это " + typeof title + ",", " fullPrice - это " + typeof fullPrice + ",", " adaptive - это " + typeof adaptive);
 console.log(`Длинна строки ${screens.length}`);
 console.log(`Стоимость верстки экранов ${screenPrice} долларов`);
-console.log(`Стоимость разработки сайта ${fullPrice} долларов`);
 console.log(screens.toLowerCase().split(", "));
-// screens.toLowerCase(screens);
 console.log(`Процент отката посреднику за работу ${rollbackValue} долларов`)
-
-const servicePercentPrice = Math.ceil(fullPrice - rollbackValue);
-console.log(servicePercentPrice);
+console.log(`Стоимость разработки сайта ${fullPrice} долларов`);
+const servicePercentPrice = Math.round(fullPrice - rollbackValue);
+console.log(`Цена сайта минус % отката ${servicePercentPrice}`);
+let totalPrice;
 
 switch (true) {
-    case fullPrice > 30000:
-        console.log(`Даем скидку в 10%! - ${(fullPrice - (fullPrice * 0.1))}`);
+    case servicePercentPrice >= 30000:
+        totalPrice = servicePercentPrice - (servicePercentPrice * 0.1);
+        console.log(`Даем скидку в 10%! - ${totalPrice}`);
         break;
-    case fullPrice < 30000 && fullPrice > 15000:
-        console.log(`Даем скидку в 5%! - ${(fullPrice - (fullPrice * 0.05))}`);
+    case servicePercentPrice < 30000 && servicePercentPrice >= 15000:
+        totalPrice = servicePercentPrice - (servicePercentPrice * 0.05);
+        console.log(`Даем скидку в 5%! - ${totalPrice}`);
         break;
-    case fullPrice < 15000 && fullPrice > 0:
-        console.log("Скидка не предусмотрена");
+    case servicePercentPrice < 15000:
+        console.log("Скидка не предусмотрена, ", servicePercentPrice);
         break;
     default:
-        console.log("Что то пошло не так");
-    
+        console.log("Что то пошло не так"); 
 }
+
