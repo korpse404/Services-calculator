@@ -33,7 +33,7 @@ switch (true) {
         totalPrice = servicePercentPrice - (servicePercentPrice * 0.05);
         console.log(`Даем скидку в 5%! - ${totalPrice}`);
         break;
-    case servicePercentPrice === 0 || Math.sign(fullPrice) === -1:
+    case Math.sign(servicePercentPrice) === -1:
         console.log("Что-то пошло не так");
         break;
     default:
