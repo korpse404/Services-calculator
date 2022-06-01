@@ -29,14 +29,14 @@ switch (true) {
         totalPrice = servicePercentPrice - (servicePercentPrice * 0.1);
         console.log(`Даем скидку в 10%! - ${totalPrice}`);
         break;
-    case servicePercentPrice < 30000 && servicePercentPrice >= 15000:
+    case servicePercentPrice >= 15000:
         totalPrice = servicePercentPrice - (servicePercentPrice * 0.05);
         console.log(`Даем скидку в 5%! - ${totalPrice}`);
         break;
-    case servicePercentPrice < 15000:
-        console.log("Скидка не предусмотрена, ", servicePercentPrice);
+    case servicePercentPrice === 0 || Math.sign(fullPrice) === -1:
+        console.log("Что-то пошло не так");
         break;
     default:
-        console.log("Что то пошло не так"); 
+        console.log("Скидка не предусмотрена, ", servicePercentPrice);
 }
 
