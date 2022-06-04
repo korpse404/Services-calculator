@@ -1,4 +1,5 @@
 'use strict';
+
 const title = prompt("Как называется ваш проект?");
 const screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
 const screenPrice = +prompt("Сколько будет стоить данная работа?", 12000);
@@ -29,14 +30,14 @@ switch (true) {
         totalPrice = servicePercentPrice - (servicePercentPrice * 0.1);
         console.log(`Даем скидку в 10%! - ${totalPrice}`);
         break;
-    case servicePercentPrice < 30000 && servicePercentPrice >= 15000:
+    case servicePercentPrice >= 15000:
         totalPrice = servicePercentPrice - (servicePercentPrice * 0.05);
         console.log(`Даем скидку в 5%! - ${totalPrice}`);
         break;
-    case servicePercentPrice < 15000:
+    case servicePercentPrice >= 0:       
         console.log("Скидка не предусмотрена, ", servicePercentPrice);
         break;
     default:
-        console.log("Что то пошло не так"); 
+        console.log("Что-то пошло не так");
 }
 
