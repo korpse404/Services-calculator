@@ -1,30 +1,31 @@
 'use strict';
 
 let title = prompt("Как называется ваш проект?");
-const screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
-const screenPrice = +prompt("Сколько будет стоить данная работа?", 12000);
-const rollback = 5;
-const adaptive = confirm("Нужен ли адаптив на сайте?");
-const service1 = prompt("Какой дополнительный тип услуги нужен?");
-const servicePrice1 = +prompt("Сколько это будет стоить?");
-const service2 = prompt("Какой еще дополнительный тип услуги нужен?");
-const servicePrice2 = +prompt("Сколько это будет стоить?");
+let screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
+let screenPrice = +prompt("Сколько будет стоить данная работа?", 12000);
+let rollback = 5;
+let adaptive = confirm("Нужен ли адаптив на сайте?");
+let service1 = prompt("Какой дополнительный тип услуги нужен?");
+let servicePrice1 = +prompt("Сколько это будет стоить?");
+let service2 = prompt("Какой еще дополнительный тип услуги нужен?");
+let servicePrice2 = +prompt("Сколько это будет стоить?");
+
+let allServicePrices;
+let fullPrice;
+let servicePercentPrice;
+
 
 const showTypeOf = function(variable) {
     return variable, typeof variable;
 }
 
-let getAllServicePrices = function() {   
+const getAllServicePrices = function() {   
     return servicePrice1 + servicePrice2;
 }
-
-let allServicePrices = getAllServicePrices();
 
 function getFullPrice () {
     return allServicePrices + screenPrice;
 }
-
-const fullPrice = getFullPrice();
 
 const getTitle = function(str) {
     str = str.trim();
@@ -32,11 +33,9 @@ const getTitle = function(str) {
     return str[0].toUpperCase() + str.slice(1);
   }
 
-let getServicePercentPrice = () => {
+const getServicePercentPrice = () => {
     return fullPrice - (fullPrice / 100 * rollback);
 }
-
-let servicePercentPrice = getServicePercentPrice();
 
 const getRollbackMessage = () => {
     switch (true) {
@@ -54,7 +53,11 @@ const getRollbackMessage = () => {
 }}
 
 
-console.log("ЭТО - " + getTitle(title));
+allServicePrices = getAllServicePrices();
+fullPrice = getFullPrice();
+servicePercentPrice = getServicePercentPrice();
+
+console.log("Название проекта - " + getTitle(title));
 console.log(showTypeOf(title), showTypeOf(fullPrice), showTypeOf(adaptive));
 console.log(`Длинна строки ${screens.length}`);
 console.log(`Стоимость верстки экранов ${screenPrice} долларов`);
