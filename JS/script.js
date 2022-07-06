@@ -33,7 +33,7 @@ const appData = {
 
             do {
                 name = prompt("Какие типы экранов нужно разработать?");
-            } while (/\d/.test(name));
+            } while (parseInt(name));
             
             do {
                 price = prompt("Сколько это будет стоить?");
@@ -44,8 +44,12 @@ const appData = {
 
 
         for (let i = 0; i < 2; i++) {
-            let name = prompt("Какой дополнительный тип услуги нужен?");
+            let name = '';
             let price = 0;
+
+            do {
+                name = prompt("Какой дополнительный тип услуги нужен?");
+            } while (parseInt(name));
             
             do {
                 price = prompt("Сколько это будет стоить?");
